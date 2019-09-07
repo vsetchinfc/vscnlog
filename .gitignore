@@ -1,0 +1,10 @@
+.directory
+bin
+obj
+*.dll
+coverage.json
+*.log
+payslip.csv
+.vs
+packages
+*.user
