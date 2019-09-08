@@ -17,7 +17,7 @@ namespace vscnlog.tests
             }
             catch (System.Exception ex)
             {
-                _log.Error(ex, "Error Happend!");
+                _log.Error(ex, "Error Hapend!");
                 Assert.True(true);
             }
         }

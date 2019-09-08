@@ -23,7 +23,16 @@ namespace VSC.NLog
             var ex = logEvent.Exception;
             if(ex != null)
             {
-                this.FormatErrorMessage(builder, ex, this.Indent);
+                try
+                {
+                    StringBuilder errorMessageBuilder = new StringBuilder();
+                    this.FormatErrorMessage(errorMessageBuilder, ex, this.Indent);
+                    builder.Append(errorMessageBuilder);
+                }
+                catch
+                {
+                    builder.Append(logEvent.Exception.ToString());
+                }
             }
         }
 
