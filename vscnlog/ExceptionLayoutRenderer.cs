@@ -21,7 +21,7 @@ namespace VSC.NLog
         protected override void Append(StringBuilder builder, LogEventInfo logEvent)
         {
             var ex = logEvent.Exception;
-            if(ex != null)
+            if(ex is null is false)
             {
                 try
                 {
@@ -46,13 +46,13 @@ namespace VSC.NLog
 
             try
             {
-                if (exception.InnerException != null)
+                if (exception.InnerException is null is false)
                 {
                     builder.Append(indent + "InnerException:" + newLine);
                     FormatErrorMessage(builder, exception.InnerException, indent + "   ");
                 }
 
-                if (exception.StackTrace != null)
+                if (exception.StackTrace is null is false)
                 {
                     foreach (string line in exception.StackTrace.Split(new string[] { " at " }, StringSplitOptions.RemoveEmptyEntries))
                     {
